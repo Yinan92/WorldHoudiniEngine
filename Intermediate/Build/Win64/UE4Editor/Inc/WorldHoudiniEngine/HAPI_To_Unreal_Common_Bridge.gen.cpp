@@ -15,6 +15,7 @@ void EmptyLinkFunctionForGeneratedCodeHAPI_To_Unreal_Common_Bridge() {}
 // Cross Module References
 	WORLDHOUDINIENGINE_API UEnum* Z_Construct_UEnum_WorldHoudiniEngine_EHoudiniSessionType();
 	UPackage* Z_Construct_UPackage__Script_WorldHoudiniEngine();
+	WORLDHOUDINIENGINE_API UScriptStruct* Z_Construct_UScriptStruct_FHoudiniCookOptions();
 	WORLDHOUDINIENGINE_API UScriptStruct* Z_Construct_UScriptStruct_FHoudiniSession();
 // End Cross Module References
 	static UEnum* EHoudiniSessionType_StaticEnum()
@@ -78,6 +79,75 @@ void EmptyLinkFunctionForGeneratedCodeHAPI_To_Unreal_Common_Bridge() {}
 		}
 		return ReturnEnum;
 	}
+class UScriptStruct* FHoudiniCookOptions::StaticStruct()
+{
+	static class UScriptStruct* Singleton = NULL;
+	if (!Singleton)
+	{
+		extern WORLDHOUDINIENGINE_API uint32 Get_Z_Construct_UScriptStruct_FHoudiniCookOptions_Hash();
+		Singleton = GetStaticStruct(Z_Construct_UScriptStruct_FHoudiniCookOptions, Z_Construct_UPackage__Script_WorldHoudiniEngine(), TEXT("HoudiniCookOptions"), sizeof(FHoudiniCookOptions), Get_Z_Construct_UScriptStruct_FHoudiniCookOptions_Hash());
+	}
+	return Singleton;
+}
+template<> WORLDHOUDINIENGINE_API UScriptStruct* StaticStruct<FHoudiniCookOptions>()
+{
+	return FHoudiniCookOptions::StaticStruct();
+}
+static FCompiledInDeferStruct Z_CompiledInDeferStruct_UScriptStruct_FHoudiniCookOptions(FHoudiniCookOptions::StaticStruct, TEXT("/Script/WorldHoudiniEngine"), TEXT("HoudiniCookOptions"), false, nullptr, nullptr);
+static struct FScriptStruct_WorldHoudiniEngine_StaticRegisterNativesFHoudiniCookOptions
+{
+	FScriptStruct_WorldHoudiniEngine_StaticRegisterNativesFHoudiniCookOptions()
+	{
+		UScriptStruct::DeferCppStructOps<FHoudiniCookOptions>(FName(TEXT("HoudiniCookOptions")));
+	}
+} ScriptStruct_WorldHoudiniEngine_StaticRegisterNativesFHoudiniCookOptions;
+	struct Z_Construct_UScriptStruct_FHoudiniCookOptions_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Struct_MetaDataParams[];
+#endif
+		static void* NewStructOps();
+		static const UE4CodeGen_Private::FStructParams ReturnStructParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FHoudiniCookOptions_Statics::Struct_MetaDataParams[] = {
+		{ "BlueprintType", "true" },
+		{ "ModuleRelativePath", "Public/HAPI_To_Unreal_Common_Bridge.h" },
+	};
+#endif
+	void* Z_Construct_UScriptStruct_FHoudiniCookOptions_Statics::NewStructOps()
+	{
+		return (UScriptStruct::ICppStructOps*)new UScriptStruct::TCppStructOps<FHoudiniCookOptions>();
+	}
+	const UE4CodeGen_Private::FStructParams Z_Construct_UScriptStruct_FHoudiniCookOptions_Statics::ReturnStructParams = {
+		(UObject* (*)())Z_Construct_UPackage__Script_WorldHoudiniEngine,
+		nullptr,
+		&NewStructOps,
+		"HoudiniCookOptions",
+		sizeof(FHoudiniCookOptions),
+		alignof(FHoudiniCookOptions),
+		nullptr,
+		0,
+		RF_Public|RF_Transient|RF_MarkAsNative,
+		EStructFlags(0x00000001),
+		METADATA_PARAMS(Z_Construct_UScriptStruct_FHoudiniCookOptions_Statics::Struct_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FHoudiniCookOptions_Statics::Struct_MetaDataParams))
+	};
+	UScriptStruct* Z_Construct_UScriptStruct_FHoudiniCookOptions()
+	{
+#if WITH_HOT_RELOAD
+		extern uint32 Get_Z_Construct_UScriptStruct_FHoudiniCookOptions_Hash();
+		UPackage* Outer = Z_Construct_UPackage__Script_WorldHoudiniEngine();
+		static UScriptStruct* ReturnStruct = FindExistingStructIfHotReloadOrDynamic(Outer, TEXT("HoudiniCookOptions"), sizeof(FHoudiniCookOptions), Get_Z_Construct_UScriptStruct_FHoudiniCookOptions_Hash(), false);
+#else
+		static UScriptStruct* ReturnStruct = nullptr;
+#endif
+		if (!ReturnStruct)
+		{
+			UE4CodeGen_Private::ConstructUScriptStruct(ReturnStruct, Z_Construct_UScriptStruct_FHoudiniCookOptions_Statics::ReturnStructParams);
+		}
+		return ReturnStruct;
+	}
+	uint32 Get_Z_Construct_UScriptStruct_FHoudiniCookOptions_Hash() { return 1534536698U; }
 class UScriptStruct* FHoudiniSession::StaticStruct()
 {
 	static class UScriptStruct* Singleton = NULL;

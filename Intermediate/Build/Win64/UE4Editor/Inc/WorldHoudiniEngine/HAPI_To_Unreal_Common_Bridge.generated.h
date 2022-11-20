@@ -13,6 +13,13 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define WORLDHOUDINIENGINE_HAPI_To_Unreal_Common_Bridge_generated_h
 
+#define UEtestH_Plugins_WorldHoudiniEngine_Source_WorldHoudiniEngine_Public_HAPI_To_Unreal_Common_Bridge_h_44_GENERATED_BODY \
+	friend struct Z_Construct_UScriptStruct_FHoudiniCookOptions_Statics; \
+	WORLDHOUDINIENGINE_API static class UScriptStruct* StaticStruct();
+
+
+template<> WORLDHOUDINIENGINE_API UScriptStruct* StaticStruct<struct FHoudiniCookOptions>();
+
 #define UEtestH_Plugins_WorldHoudiniEngine_Source_WorldHoudiniEngine_Public_HAPI_To_Unreal_Common_Bridge_h_21_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FHoudiniSession_Statics; \
 	WORLDHOUDINIENGINE_API static class UScriptStruct* StaticStruct();

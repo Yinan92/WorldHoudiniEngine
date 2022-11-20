@@ -28,7 +28,45 @@ UCLASS()
 class UWorldHoudiniEngineBPLibrary : public UBlueprintFunctionLibrary
 {
 	GENERATED_UCLASS_BODY()
-		
-		UFUNCTION(BlueprintCallable, meta = (ToolTip = "Creates a Thrift RPC session using a TCP socket as transport."), Category = "WorldHoudiniBPLibrary")
-		static FHoudiniSession StartServerAndCreateSession(FHoudiniSession HoudiniSession);
+	
+public:
+
+	UFUNCTION(BlueprintCallable, meta = (ToolTip = "Creates a Thrift RPC session using a Windows named pipe or a Unix domain socket as transport."), Category = "WorldHoudiniBPLibrary | Session")
+	static FHoudiniSession StartServerAndCreateSession(FHoudiniSession HoudiniSession);
+
+	UFUNCTION(BlueprintCallable, meta = (ToolTip = "Creats and initialize cook options."), Category = "WorldHoudiniBPLibrary | Helpers")
+	static FHoudiniCookOptions CreateHoudiniCookOptions();
+
+	//Create the asset manager, set up environment variables, and initialize the main Houdini scene. No license check is done during this step. 
+	//Only when you try to load an asset library (OTL) do we actually check for licenses.
+	UFUNCTION(BlueprintCallable, Category = "WorldHoudiniBPLibrary | Session")
+	static void HoudiniInitialize(FHoudiniSession HoudiniSession, const FHoudiniCookOptions& HoudiniCookOptions);
+
+	//Checks whether the session identified by HAPI_Session::id is a valid session opened in the implementation identified by HAPI_Session::type.
+	UFUNCTION(BlueprintCallable, Category = "WorldHoudiniBPLibrary | Session")
+	static bool HoudiniIsSessionValid(FHoudiniSession HoudiniSession);
+
+	//Loads a Houdini asset library (OTL) from a .otl file. It does NOT create anything inside the Houdini scene.
+	UFUNCTION(BlueprintCallable, Category = "WorldHoudiniBPLibrary | Assets")
+	static bool HoudiniLoadAssetLibraryFromFile(FHoudiniSession HoudiniSession, FString otlFilePath, bool bAllowOverwrite, int& AssetLibraryId);
+
+	//Get the names of the assets contained in an asset library.
+	UFUNCTION(BlueprintCallable, Category = "WorldHoudiniBPLibrary | Assets")
+	static bool HoudiniGetAssetOperatorName(FHoudiniSession HoudiniSession, int AssetLibraryId, FString& FullOpName, FString& Label);
+
+	//Create a node inside a node network. Nodes created this way will have their HAPI_NodeInfo::createdPostAssetLoad set to true.
+	UFUNCTION(BlueprintCallable, Category = "WorldHoudiniBPLibrary | Nodes")
+	static bool HoudiniCreateNode(FHoudiniSession HoudiniSession, FString OperatorName, FString Label, int& NodeId, int ParentNodeId = -1, bool bCookOnCreation = false);
+
+	//Initiate a cook on this node. Note that this may trigger cooks on other nodes if they are connected.
+	UFUNCTION(BlueprintCallable, Category = "WorldHoudiniBPLibrary | Nodes")
+	static void HoudiniCookNode(FHoudiniSession HoudiniSession, int NodeId, FHoudiniCookOptions HoudiniCookOptions);
+
+	//Saves a .hip file of the current Houdini scene.
+	UFUNCTION(BlueprintCallable, Category = "WorldHoudiniBPLibrary | SaveHIPFiles")
+	static bool HoudiniSaveHIPFile(FHoudiniSession HoudiniSession, FString FilePath, bool bLockNode = false);
+
+private:
+
+	static FString ToString(FHoudiniSession HoudiniSession, HAPI_StringHandle& InStringHandle);
 };

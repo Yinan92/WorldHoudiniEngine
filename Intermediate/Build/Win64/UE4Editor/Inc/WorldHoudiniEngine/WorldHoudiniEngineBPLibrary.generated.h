@@ -9,6 +9,7 @@
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 struct FHoudiniSession;
+struct FHoudiniCookOptions;
 #ifdef WORLDHOUDINIENGINE_WorldHoudiniEngineBPLibrary_generated_h
 #error "WorldHoudiniEngineBPLibrary.generated.h already included, missing '#pragma once' in WorldHoudiniEngineBPLibrary.h"
 #endif
@@ -17,11 +18,27 @@ struct FHoudiniSession;
 #define UEtestH_Plugins_WorldHoudiniEngine_Source_WorldHoudiniEngine_Public_WorldHoudiniEngineBPLibrary_h_30_SPARSE_DATA
 #define UEtestH_Plugins_WorldHoudiniEngine_Source_WorldHoudiniEngine_Public_WorldHoudiniEngineBPLibrary_h_30_RPC_WRAPPERS \
  \
+	DECLARE_FUNCTION(execHoudiniSaveHIPFile); \
+	DECLARE_FUNCTION(execHoudiniCookNode); \
+	DECLARE_FUNCTION(execHoudiniCreateNode); \
+	DECLARE_FUNCTION(execHoudiniGetAssetOperatorName); \
+	DECLARE_FUNCTION(execHoudiniLoadAssetLibraryFromFile); \
+	DECLARE_FUNCTION(execHoudiniIsSessionValid); \
+	DECLARE_FUNCTION(execHoudiniInitialize); \
+	DECLARE_FUNCTION(execCreateHoudiniCookOptions); \
 	DECLARE_FUNCTION(execStartServerAndCreateSession);
 
 
 #define UEtestH_Plugins_WorldHoudiniEngine_Source_WorldHoudiniEngine_Public_WorldHoudiniEngineBPLibrary_h_30_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execHoudiniSaveHIPFile); \
+	DECLARE_FUNCTION(execHoudiniCookNode); \
+	DECLARE_FUNCTION(execHoudiniCreateNode); \
+	DECLARE_FUNCTION(execHoudiniGetAssetOperatorName); \
+	DECLARE_FUNCTION(execHoudiniLoadAssetLibraryFromFile); \
+	DECLARE_FUNCTION(execHoudiniIsSessionValid); \
+	DECLARE_FUNCTION(execHoudiniInitialize); \
+	DECLARE_FUNCTION(execCreateHoudiniCookOptions); \
 	DECLARE_FUNCTION(execStartServerAndCreateSession);
 
 

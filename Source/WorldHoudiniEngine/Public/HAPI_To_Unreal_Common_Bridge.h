@@ -33,19 +33,14 @@ struct FHoudiniSession
     {}
 
 public:
-    HAPI_Session ToHAPI_Session()
-    {
-        HAPI_Session Session;
-        Session.id = (HAPI_SessionId)SessionId;
-        Session.type = (HAPI_SessionType)HoudiniSessionType;
-        return Session;
-    }
+    HAPI_Session ToHAPI_Session();
 
-    static FHoudiniSession FromHAPI_Session(const HAPI_Session& HAPISession)
-    {
-        FHoudiniSession TempHoudiniSession;
-        TempHoudiniSession.SessionId = (int64)HAPISession.id;
-        TempHoudiniSession.HoudiniSessionType = (EHoudiniSessionType)HAPISession.type;
-        return TempHoudiniSession;
-    }
+    static FHoudiniSession FromHAPI_Session(const HAPI_Session& HAPISession);
+};
+
+USTRUCT(BlueprintType)
+struct FHoudiniCookOptions
+{
+    GENERATED_USTRUCT_BODY()
+    HAPI_CookOptions HAPICookOptions;
 };
