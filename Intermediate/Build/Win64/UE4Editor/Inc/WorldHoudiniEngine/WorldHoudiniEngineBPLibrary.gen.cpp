@@ -20,6 +20,30 @@ void EmptyLinkFunctionForGeneratedCodeWorldHoudiniEngineBPLibrary() {}
 	WORLDHOUDINIENGINE_API UScriptStruct* Z_Construct_UScriptStruct_FHoudiniCookOptions();
 	WORLDHOUDINIENGINE_API UScriptStruct* Z_Construct_UScriptStruct_FHoudiniSession();
 // End Cross Module References
+	DEFINE_FUNCTION(UWorldHoudiniEngineBPLibrary::execHoudiniIsInitialized)
+	{
+		P_GET_STRUCT(FHoudiniSession,Z_Param_HoudiniSession);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(bool*)Z_Param__Result=UWorldHoudiniEngineBPLibrary::HoudiniIsInitialized(Z_Param_HoudiniSession);
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(UWorldHoudiniEngineBPLibrary::execHoudiniCloseSession)
+	{
+		P_GET_STRUCT(FHoudiniSession,Z_Param_HoudiniSession);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		UWorldHoudiniEngineBPLibrary::HoudiniCloseSession(Z_Param_HoudiniSession);
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(UWorldHoudiniEngineBPLibrary::execHoudiniCleanupSession)
+	{
+		P_GET_STRUCT(FHoudiniSession,Z_Param_HoudiniSession);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		UWorldHoudiniEngineBPLibrary::HoudiniCleanupSession(Z_Param_HoudiniSession);
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(UWorldHoudiniEngineBPLibrary::execHoudiniSaveHIPFile)
 	{
 		P_GET_STRUCT(FHoudiniSession,Z_Param_HoudiniSession);
@@ -112,10 +136,13 @@ void EmptyLinkFunctionForGeneratedCodeWorldHoudiniEngineBPLibrary() {}
 		UClass* Class = UWorldHoudiniEngineBPLibrary::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
 			{ "CreateHoudiniCookOptions", &UWorldHoudiniEngineBPLibrary::execCreateHoudiniCookOptions },
+			{ "HoudiniCleanupSession", &UWorldHoudiniEngineBPLibrary::execHoudiniCleanupSession },
+			{ "HoudiniCloseSession", &UWorldHoudiniEngineBPLibrary::execHoudiniCloseSession },
 			{ "HoudiniCookNode", &UWorldHoudiniEngineBPLibrary::execHoudiniCookNode },
 			{ "HoudiniCreateNode", &UWorldHoudiniEngineBPLibrary::execHoudiniCreateNode },
 			{ "HoudiniGetAssetOperatorName", &UWorldHoudiniEngineBPLibrary::execHoudiniGetAssetOperatorName },
 			{ "HoudiniInitialize", &UWorldHoudiniEngineBPLibrary::execHoudiniInitialize },
+			{ "HoudiniIsInitialized", &UWorldHoudiniEngineBPLibrary::execHoudiniIsInitialized },
 			{ "HoudiniIsSessionValid", &UWorldHoudiniEngineBPLibrary::execHoudiniIsSessionValid },
 			{ "HoudiniLoadAssetLibraryFromFile", &UWorldHoudiniEngineBPLibrary::execHoudiniLoadAssetLibraryFromFile },
 			{ "HoudiniSaveHIPFile", &UWorldHoudiniEngineBPLibrary::execHoudiniSaveHIPFile },
@@ -154,6 +181,76 @@ void EmptyLinkFunctionForGeneratedCodeWorldHoudiniEngineBPLibrary() {}
 		if (!ReturnFunction)
 		{
 			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_UWorldHoudiniEngineBPLibrary_CreateHoudiniCookOptions_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_UWorldHoudiniEngineBPLibrary_HoudiniCleanupSession_Statics
+	{
+		struct WorldHoudiniEngineBPLibrary_eventHoudiniCleanupSession_Parms
+		{
+			FHoudiniSession HoudiniSession;
+		};
+		static const UE4CodeGen_Private::FStructPropertyParams NewProp_HoudiniSession;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UWorldHoudiniEngineBPLibrary_HoudiniCleanupSession_Statics::NewProp_HoudiniSession = { "HoudiniSession", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(WorldHoudiniEngineBPLibrary_eventHoudiniCleanupSession_Parms, HoudiniSession), Z_Construct_UScriptStruct_FHoudiniSession, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UWorldHoudiniEngineBPLibrary_HoudiniCleanupSession_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UWorldHoudiniEngineBPLibrary_HoudiniCleanupSession_Statics::NewProp_HoudiniSession,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UWorldHoudiniEngineBPLibrary_HoudiniCleanupSession_Statics::Function_MetaDataParams[] = {
+		{ "Category", "WorldHoudiniBPLibrary | Sessions" },
+		{ "Comment", "//Clean up memory. This will unload all assets and you will need to call HAPI_Initialize() again to be able to use any HAPI methods again.\n" },
+		{ "ModuleRelativePath", "Public/WorldHoudiniEngineBPLibrary.h" },
+		{ "ToolTip", "Clean up memory. This will unload all assets and you will need to call HAPI_Initialize() again to be able to use any HAPI methods again." },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_UWorldHoudiniEngineBPLibrary_HoudiniCleanupSession_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UWorldHoudiniEngineBPLibrary, nullptr, "HoudiniCleanupSession", nullptr, nullptr, sizeof(WorldHoudiniEngineBPLibrary_eventHoudiniCleanupSession_Parms), Z_Construct_UFunction_UWorldHoudiniEngineBPLibrary_HoudiniCleanupSession_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UWorldHoudiniEngineBPLibrary_HoudiniCleanupSession_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04022401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UWorldHoudiniEngineBPLibrary_HoudiniCleanupSession_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UWorldHoudiniEngineBPLibrary_HoudiniCleanupSession_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_UWorldHoudiniEngineBPLibrary_HoudiniCleanupSession()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_UWorldHoudiniEngineBPLibrary_HoudiniCleanupSession_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_UWorldHoudiniEngineBPLibrary_HoudiniCloseSession_Statics
+	{
+		struct WorldHoudiniEngineBPLibrary_eventHoudiniCloseSession_Parms
+		{
+			FHoudiniSession HoudiniSession;
+		};
+		static const UE4CodeGen_Private::FStructPropertyParams NewProp_HoudiniSession;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UWorldHoudiniEngineBPLibrary_HoudiniCloseSession_Statics::NewProp_HoudiniSession = { "HoudiniSession", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(WorldHoudiniEngineBPLibrary_eventHoudiniCloseSession_Parms, HoudiniSession), Z_Construct_UScriptStruct_FHoudiniSession, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UWorldHoudiniEngineBPLibrary_HoudiniCloseSession_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UWorldHoudiniEngineBPLibrary_HoudiniCloseSession_Statics::NewProp_HoudiniSession,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UWorldHoudiniEngineBPLibrary_HoudiniCloseSession_Statics::Function_MetaDataParams[] = {
+		{ "Category", "WorldHoudiniBPLibrary | Sessions" },
+		{ "Comment", "//Closes a session. If the session has been established using RPC, then the RPC connection is closed.\n" },
+		{ "ModuleRelativePath", "Public/WorldHoudiniEngineBPLibrary.h" },
+		{ "ToolTip", "Closes a session. If the session has been established using RPC, then the RPC connection is closed." },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_UWorldHoudiniEngineBPLibrary_HoudiniCloseSession_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UWorldHoudiniEngineBPLibrary, nullptr, "HoudiniCloseSession", nullptr, nullptr, sizeof(WorldHoudiniEngineBPLibrary_eventHoudiniCloseSession_Parms), Z_Construct_UFunction_UWorldHoudiniEngineBPLibrary_HoudiniCloseSession_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UWorldHoudiniEngineBPLibrary_HoudiniCloseSession_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04022401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UWorldHoudiniEngineBPLibrary_HoudiniCloseSession_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UWorldHoudiniEngineBPLibrary_HoudiniCloseSession_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_UWorldHoudiniEngineBPLibrary_HoudiniCloseSession()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_UWorldHoudiniEngineBPLibrary_HoudiniCloseSession_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -358,7 +455,7 @@ void EmptyLinkFunctionForGeneratedCodeWorldHoudiniEngineBPLibrary() {}
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UWorldHoudiniEngineBPLibrary_HoudiniInitialize_Statics::Function_MetaDataParams[] = {
-		{ "Category", "WorldHoudiniBPLibrary | Session" },
+		{ "Category", "WorldHoudiniBPLibrary | Sessions" },
 		{ "Comment", "//Create the asset manager, set up environment variables, and initialize the main Houdini scene. No license check is done during this step. \n//Only when you try to load an asset library (OTL) do we actually check for licenses.\n" },
 		{ "ModuleRelativePath", "Public/WorldHoudiniEngineBPLibrary.h" },
 		{ "ToolTip", "Create the asset manager, set up environment variables, and initialize the main Houdini scene. No license check is done during this step.\nOnly when you try to load an asset library (OTL) do we actually check for licenses." },
@@ -371,6 +468,50 @@ void EmptyLinkFunctionForGeneratedCodeWorldHoudiniEngineBPLibrary() {}
 		if (!ReturnFunction)
 		{
 			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_UWorldHoudiniEngineBPLibrary_HoudiniInitialize_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_UWorldHoudiniEngineBPLibrary_HoudiniIsInitialized_Statics
+	{
+		struct WorldHoudiniEngineBPLibrary_eventHoudiniIsInitialized_Parms
+		{
+			FHoudiniSession HoudiniSession;
+			bool ReturnValue;
+		};
+		static const UE4CodeGen_Private::FStructPropertyParams NewProp_HoudiniSession;
+		static void NewProp_ReturnValue_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_ReturnValue;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UWorldHoudiniEngineBPLibrary_HoudiniIsInitialized_Statics::NewProp_HoudiniSession = { "HoudiniSession", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(WorldHoudiniEngineBPLibrary_eventHoudiniIsInitialized_Parms, HoudiniSession), Z_Construct_UScriptStruct_FHoudiniSession, METADATA_PARAMS(nullptr, 0) };
+	void Z_Construct_UFunction_UWorldHoudiniEngineBPLibrary_HoudiniIsInitialized_Statics::NewProp_ReturnValue_SetBit(void* Obj)
+	{
+		((WorldHoudiniEngineBPLibrary_eventHoudiniIsInitialized_Parms*)Obj)->ReturnValue = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_UWorldHoudiniEngineBPLibrary_HoudiniIsInitialized_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(WorldHoudiniEngineBPLibrary_eventHoudiniIsInitialized_Parms), &Z_Construct_UFunction_UWorldHoudiniEngineBPLibrary_HoudiniIsInitialized_Statics::NewProp_ReturnValue_SetBit, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UWorldHoudiniEngineBPLibrary_HoudiniIsInitialized_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UWorldHoudiniEngineBPLibrary_HoudiniIsInitialized_Statics::NewProp_HoudiniSession,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UWorldHoudiniEngineBPLibrary_HoudiniIsInitialized_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UWorldHoudiniEngineBPLibrary_HoudiniIsInitialized_Statics::Function_MetaDataParams[] = {
+		{ "Category", "WorldHoudiniBPLibrary | Sessions" },
+		{ "Comment", "//Check whether the runtime has been initialized yet using HAPI_Initialize().\n//Function will return HAPI_RESULT_SUCCESS if the runtime has been initializedand HAPI_RESULT_NOT_INITIALIZED otherwise.\n" },
+		{ "ModuleRelativePath", "Public/WorldHoudiniEngineBPLibrary.h" },
+		{ "ToolTip", "Check whether the runtime has been initialized yet using HAPI_Initialize().\nFunction will return HAPI_RESULT_SUCCESS if the runtime has been initializedand HAPI_RESULT_NOT_INITIALIZED otherwise." },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_UWorldHoudiniEngineBPLibrary_HoudiniIsInitialized_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UWorldHoudiniEngineBPLibrary, nullptr, "HoudiniIsInitialized", nullptr, nullptr, sizeof(WorldHoudiniEngineBPLibrary_eventHoudiniIsInitialized_Parms), Z_Construct_UFunction_UWorldHoudiniEngineBPLibrary_HoudiniIsInitialized_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UWorldHoudiniEngineBPLibrary_HoudiniIsInitialized_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04022401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UWorldHoudiniEngineBPLibrary_HoudiniIsInitialized_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UWorldHoudiniEngineBPLibrary_HoudiniIsInitialized_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_UWorldHoudiniEngineBPLibrary_HoudiniIsInitialized()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_UWorldHoudiniEngineBPLibrary_HoudiniIsInitialized_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -402,7 +543,7 @@ void EmptyLinkFunctionForGeneratedCodeWorldHoudiniEngineBPLibrary() {}
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UWorldHoudiniEngineBPLibrary_HoudiniIsSessionValid_Statics::Function_MetaDataParams[] = {
-		{ "Category", "WorldHoudiniBPLibrary | Session" },
+		{ "Category", "WorldHoudiniBPLibrary | Sessions" },
 		{ "Comment", "//Checks whether the session identified by HAPI_Session::id is a valid session opened in the implementation identified by HAPI_Session::type.\n" },
 		{ "ModuleRelativePath", "Public/WorldHoudiniEngineBPLibrary.h" },
 		{ "ToolTip", "Checks whether the session identified by HAPI_Session::id is a valid session opened in the implementation identified by HAPI_Session::type." },
@@ -595,11 +736,14 @@ void EmptyLinkFunctionForGeneratedCodeWorldHoudiniEngineBPLibrary() {}
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_UWorldHoudiniEngineBPLibrary_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_UWorldHoudiniEngineBPLibrary_CreateHoudiniCookOptions, "CreateHoudiniCookOptions" }, // 70622970
+		{ &Z_Construct_UFunction_UWorldHoudiniEngineBPLibrary_HoudiniCleanupSession, "HoudiniCleanupSession" }, // 3609215825
+		{ &Z_Construct_UFunction_UWorldHoudiniEngineBPLibrary_HoudiniCloseSession, "HoudiniCloseSession" }, // 2512143431
 		{ &Z_Construct_UFunction_UWorldHoudiniEngineBPLibrary_HoudiniCookNode, "HoudiniCookNode" }, // 1922585534
 		{ &Z_Construct_UFunction_UWorldHoudiniEngineBPLibrary_HoudiniCreateNode, "HoudiniCreateNode" }, // 3848572855
 		{ &Z_Construct_UFunction_UWorldHoudiniEngineBPLibrary_HoudiniGetAssetOperatorName, "HoudiniGetAssetOperatorName" }, // 2725711131
-		{ &Z_Construct_UFunction_UWorldHoudiniEngineBPLibrary_HoudiniInitialize, "HoudiniInitialize" }, // 2052036195
-		{ &Z_Construct_UFunction_UWorldHoudiniEngineBPLibrary_HoudiniIsSessionValid, "HoudiniIsSessionValid" }, // 241636065
+		{ &Z_Construct_UFunction_UWorldHoudiniEngineBPLibrary_HoudiniInitialize, "HoudiniInitialize" }, // 2746263764
+		{ &Z_Construct_UFunction_UWorldHoudiniEngineBPLibrary_HoudiniIsInitialized, "HoudiniIsInitialized" }, // 2693519460
+		{ &Z_Construct_UFunction_UWorldHoudiniEngineBPLibrary_HoudiniIsSessionValid, "HoudiniIsSessionValid" }, // 1628372892
 		{ &Z_Construct_UFunction_UWorldHoudiniEngineBPLibrary_HoudiniLoadAssetLibraryFromFile, "HoudiniLoadAssetLibraryFromFile" }, // 2739879972
 		{ &Z_Construct_UFunction_UWorldHoudiniEngineBPLibrary_HoudiniSaveHIPFile, "HoudiniSaveHIPFile" }, // 3090297431
 		{ &Z_Construct_UFunction_UWorldHoudiniEngineBPLibrary_StartServerAndCreateSession, "StartServerAndCreateSession" }, // 3677341485
@@ -639,7 +783,7 @@ void EmptyLinkFunctionForGeneratedCodeWorldHoudiniEngineBPLibrary() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(UWorldHoudiniEngineBPLibrary, 1390287554);
+	IMPLEMENT_CLASS(UWorldHoudiniEngineBPLibrary, 2530763271);
 	template<> WORLDHOUDINIENGINE_API UClass* StaticClass<UWorldHoudiniEngineBPLibrary>()
 	{
 		return UWorldHoudiniEngineBPLibrary::StaticClass();

@@ -21,7 +21,7 @@ void EmptyLinkFunctionForGeneratedCodeWorldHoudiniEngine_init() {}
 				nullptr,
 				0,
 				PKG_CompiledIn | 0x00000000,
-				0x33C4F19F,
+				0x7D869511,
 				0xDF45D864,
 				METADATA_PARAMS(nullptr, 0)
 			};

@@ -39,11 +39,11 @@ public:
 
 	//Create the asset manager, set up environment variables, and initialize the main Houdini scene. No license check is done during this step. 
 	//Only when you try to load an asset library (OTL) do we actually check for licenses.
-	UFUNCTION(BlueprintCallable, Category = "WorldHoudiniBPLibrary | Session")
+	UFUNCTION(BlueprintCallable, Category = "WorldHoudiniBPLibrary | Sessions")
 	static void HoudiniInitialize(FHoudiniSession HoudiniSession, const FHoudiniCookOptions& HoudiniCookOptions);
 
 	//Checks whether the session identified by HAPI_Session::id is a valid session opened in the implementation identified by HAPI_Session::type.
-	UFUNCTION(BlueprintCallable, Category = "WorldHoudiniBPLibrary | Session")
+	UFUNCTION(BlueprintCallable, Category = "WorldHoudiniBPLibrary | Sessions")
 	static bool HoudiniIsSessionValid(FHoudiniSession HoudiniSession);
 
 	//Loads a Houdini asset library (OTL) from a .otl file. It does NOT create anything inside the Houdini scene.
@@ -65,6 +65,19 @@ public:
 	//Saves a .hip file of the current Houdini scene.
 	UFUNCTION(BlueprintCallable, Category = "WorldHoudiniBPLibrary | SaveHIPFiles")
 	static bool HoudiniSaveHIPFile(FHoudiniSession HoudiniSession, FString FilePath, bool bLockNode = false);
+
+	//Clean up memory. This will unload all assets and you will need to call HAPI_Initialize() again to be able to use any HAPI methods again.
+	UFUNCTION(BlueprintCallable, Category = "WorldHoudiniBPLibrary | Sessions")
+	static void HoudiniCleanupSession(FHoudiniSession HoudiniSession);
+
+	//Closes a session. If the session has been established using RPC, then the RPC connection is closed.
+	UFUNCTION(BlueprintCallable, Category = "WorldHoudiniBPLibrary | Sessions")
+	static void HoudiniCloseSession(FHoudiniSession HoudiniSession);
+
+	//Check whether the runtime has been initialized yet using HAPI_Initialize().
+	//Function will return HAPI_RESULT_SUCCESS if the runtime has been initializedand HAPI_RESULT_NOT_INITIALIZED otherwise.
+	UFUNCTION(BlueprintCallable, Category = "WorldHoudiniBPLibrary | Sessions")
+	static 	bool HoudiniIsInitialized(FHoudiniSession HoudiniSession);
 
 private:
 

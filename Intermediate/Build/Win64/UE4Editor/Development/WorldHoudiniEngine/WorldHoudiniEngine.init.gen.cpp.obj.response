@@ -32,7 +32,7 @@
 /wd4244
 /wd4838
 /I .
-/I D:\Work\UEtestH\Plugins\WorldHoudiniEngine\Source\WorldHoudiniEngine\Private
+/I D:\UE_Test\UEtestH\Plugins\WorldHoudiniEngine\Source\WorldHoudiniEngine\Private
 /I ..\Intermediate\Build\Win64\UE4Editor\Inc\CoreUObject
 /I Runtime
 /I Runtime\CoreUObject\Public
@@ -235,10 +235,10 @@
 /I ..\Plugins\Runtime\ProceduralMeshComponent\Intermediate\Build\Win64\UE4Editor\Inc\ProceduralMeshComponent
 /I ..\Plugins\Runtime\ProceduralMeshComponent\Source
 /I ..\Plugins\Runtime\ProceduralMeshComponent\Source\ProceduralMeshComponent\Public
-/I D:\Work\UEtestH\Plugins\WorldHoudiniEngine\Intermediate\Build\Win64\UE4Editor\Inc\WorldHoudiniEngine
-/I D:\Work\UEtestH\Plugins\WorldHoudiniEngine\Source
-/I D:\Work\UEtestH\Plugins\WorldHoudiniEngine\Source\WorldHoudiniEngine\Public\HAPI
-/I D:\Work\UEtestH\Plugins\WorldHoudiniEngine\Source\WorldHoudiniEngine\Public
+/I D:\UE_Test\UEtestH\Plugins\WorldHoudiniEngine\Intermediate\Build\Win64\UE4Editor\Inc\WorldHoudiniEngine
+/I D:\UE_Test\UEtestH\Plugins\WorldHoudiniEngine\Source
+/I D:\UE_Test\UEtestH\Plugins\WorldHoudiniEngine\Source\WorldHoudiniEngine\Public\HAPI
+/I D:\UE_Test\UEtestH\Plugins\WorldHoudiniEngine\Source\WorldHoudiniEngine\Public
 /I ThirdParty\PhysX3\PxShared\include
 /I ThirdParty\PhysX3\PxShared\include\cudamanager
 /I ThirdParty\PhysX3\PxShared\include\filebuf
@@ -262,18 +262,18 @@
 /I ThirdParty\PhysX3\APEX_1.4\shared\general\RenderDebug\public
 /I ThirdParty\PhysX3\APEX_1.4\shared\general\PairFilter\include
 /I ThirdParty\PhysX3\APEX_1.4\shared\internal\include
-/I "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.33.31629\INCLUDE"
-/I "C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8.1\include\um"
-/I "C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\ucrt"
-/I "C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\shared"
-/I "C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\um"
-/I "C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\winrt"
-/FI"D:\Work\UEtestH\Intermediate\Build\Win64\UEtestHEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.Cpp17.h"
-/Yu"D:\Work\UEtestH\Intermediate\Build\Win64\UEtestHEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.Cpp17.h"
-/Fp"D:\Work\UEtestH\Intermediate\Build\Win64\UEtestHEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.Cpp17.h.pch"
-"D:\Work\UEtestH\Plugins\WorldHoudiniEngine\Intermediate\Build\Win64\UE4Editor\Inc\WorldHoudiniEngine\WorldHoudiniEngine.init.gen.cpp"
-/FI"D:\Work\UEtestH\Plugins\WorldHoudiniEngine\Intermediate\Build\Win64\UE4Editor\Development\WorldHoudiniEngine\Definitions.WorldHoudiniEngine.h"
-/Fo"D:\Work\UEtestH\Plugins\WorldHoudiniEngine\Intermediate\Build\Win64\UE4Editor\Development\WorldHoudiniEngine\WorldHoudiniEngine.init.gen.cpp.obj"
+/I "C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.34.31933\INCLUDE"
+/I "C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.2\include\um"
+/I "C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\ucrt"
+/I "C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\shared"
+/I "C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\um"
+/I "C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\winrt"
+/FI"D:\UE_Test\UEtestH\Intermediate\Build\Win64\UEtestHEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.Cpp17.h"
+/Yu"D:\UE_Test\UEtestH\Intermediate\Build\Win64\UEtestHEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.Cpp17.h"
+/Fp"D:\UE_Test\UEtestH\Intermediate\Build\Win64\UEtestHEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.Cpp17.h.pch"
+"D:\UE_Test\UEtestH\Plugins\WorldHoudiniEngine\Intermediate\Build\Win64\UE4Editor\Inc\WorldHoudiniEngine\WorldHoudiniEngine.init.gen.cpp"
+/FI"D:\UE_Test\UEtestH\Plugins\WorldHoudiniEngine\Intermediate\Build\Win64\UE4Editor\Development\WorldHoudiniEngine\Definitions.WorldHoudiniEngine.h"
+/Fo"D:\UE_Test\UEtestH\Plugins\WorldHoudiniEngine\Intermediate\Build\Win64\UE4Editor\Development\WorldHoudiniEngine\WorldHoudiniEngine.init.gen.cpp.obj"
 /TP
 /GR-
 /W4

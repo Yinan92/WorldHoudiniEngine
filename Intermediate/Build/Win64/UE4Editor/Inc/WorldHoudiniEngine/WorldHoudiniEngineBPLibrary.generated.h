@@ -18,6 +18,9 @@ struct FHoudiniCookOptions;
 #define UEtestH_Plugins_WorldHoudiniEngine_Source_WorldHoudiniEngine_Public_WorldHoudiniEngineBPLibrary_h_30_SPARSE_DATA
 #define UEtestH_Plugins_WorldHoudiniEngine_Source_WorldHoudiniEngine_Public_WorldHoudiniEngineBPLibrary_h_30_RPC_WRAPPERS \
  \
+	DECLARE_FUNCTION(execHoudiniIsInitialized); \
+	DECLARE_FUNCTION(execHoudiniCloseSession); \
+	DECLARE_FUNCTION(execHoudiniCleanupSession); \
 	DECLARE_FUNCTION(execHoudiniSaveHIPFile); \
 	DECLARE_FUNCTION(execHoudiniCookNode); \
 	DECLARE_FUNCTION(execHoudiniCreateNode); \
@@ -31,6 +34,9 @@ struct FHoudiniCookOptions;
 
 #define UEtestH_Plugins_WorldHoudiniEngine_Source_WorldHoudiniEngine_Public_WorldHoudiniEngineBPLibrary_h_30_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execHoudiniIsInitialized); \
+	DECLARE_FUNCTION(execHoudiniCloseSession); \
+	DECLARE_FUNCTION(execHoudiniCleanupSession); \
 	DECLARE_FUNCTION(execHoudiniSaveHIPFile); \
 	DECLARE_FUNCTION(execHoudiniCookNode); \
 	DECLARE_FUNCTION(execHoudiniCreateNode); \

@@ -124,6 +124,37 @@ bool UWorldHoudiniEngineBPLibrary::HoudiniSaveHIPFile(FHoudiniSession HoudiniSes
 	return Result == HAPI_RESULT_SUCCESS;
 }
 
+void UWorldHoudiniEngineBPLibrary::HoudiniCleanupSession(FHoudiniSession HoudiniSession)
+{
+	if (!HoudiniIsSessionValid(HoudiniSession))
+	{
+		return;
+	}
+	HAPI_Session OrigSession = HoudiniSession.ToHAPI_Session();
+	HAPI_Cleanup(&OrigSession);
+}
+
+void UWorldHoudiniEngineBPLibrary::HoudiniCloseSession(FHoudiniSession HoudiniSession)
+{
+	if (!HoudiniIsSessionValid(HoudiniSession))
+	{
+		return;
+	}
+	HAPI_Session OrigSession = HoudiniSession.ToHAPI_Session();
+	HAPI_CloseSession(&OrigSession);
+}
+
+bool UWorldHoudiniEngineBPLibrary::HoudiniIsInitialized(FHoudiniSession HoudiniSession)
+{
+	if (!HoudiniIsSessionValid(HoudiniSession))
+	{
+		return false;
+	}
+	HAPI_Session OrigSession = HoudiniSession.ToHAPI_Session();
+	HAPI_Result Result = HAPI_IsInitialized(&OrigSession);
+	return Result == HAPI_RESULT_SUCCESS;
+}
+
 FString UWorldHoudiniEngineBPLibrary::ToString(FHoudiniSession HoudiniSession, HAPI_StringHandle& InStringHandle)
 {
 	if (!HoudiniIsSessionValid(HoudiniSession))
